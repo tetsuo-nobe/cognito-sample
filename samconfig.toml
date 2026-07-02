@@ -1,0 +1,14 @@
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "cognito-sample"
+resolve_s3 = true
+s3_prefix = "cognito-sample"
+region = "ap-northeast-1"
+profile = "tnobep"
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "CognitoClientId=\"6nrfmt36otrai29m68449h3ph9\" CognitoUserPoolArn=\"arn:aws:cognito-idp:ap-northeast-1:670208121311:userpool/ap-northeast-1_rJ61BZGW6\""
+image_repositories = []
+
+[default.global.parameters]
+region = "ap-northeast-1"

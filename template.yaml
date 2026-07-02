@@ -1,0 +1,84 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Cognito authentication SPA backend - Lambda function with API Gateway REST API
+  for user sign-in, sign-up, verification, password change, and code resend operations.
+
+Parameters:
+  CognitoClientId:
+    Type: String
+    Description: The Cognito User Pool App Client ID used for authentication operations
+  CognitoUserPoolArn:
+    Type: String
+    Description: The ARN of the Cognito User Pool for IAM policy resource restriction
+
+Resources:
+  # API Gateway REST API with CORS configuration
+  CognitoAuthApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: !Sub "${AWS::StackName}-CognitoAuthApi"
+      StageName: Prod
+      Cors:
+        AllowOrigin: "'*'"
+        AllowMethods: "'GET,POST,OPTIONS'"
+        AllowHeaders: "'Content-Type,Authorization'"
+
+  # Lambda function for Cognito authentication operations
+  CognitoAuthFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-CognitoAuthFunction"
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.13
+      CodeUri: backend/
+      Timeout: 30
+      Environment:
+        Variables:
+          COGNITO_CLIENT_ID: !Ref CognitoClientId
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - cognito-idp:InitiateAuth
+                - cognito-idp:SignUp
+                - cognito-idp:ConfirmSignUp
+                - cognito-idp:ChangePassword
+                - cognito-idp:ResendConfirmationCode
+              Resource: !Ref CognitoUserPoolArn
+      Events:
+        SignIn:
+          Type: Api
+          Properties:
+            Path: /signin
+            Method: POST
+            RestApiId: !Ref CognitoAuthApi
+        SignUp:
+          Type: Api
+          Properties:
+            Path: /signup
+            Method: POST
+            RestApiId: !Ref CognitoAuthApi
+        Verify:
+          Type: Api
+          Properties:
+            Path: /verify
+            Method: POST
+            RestApiId: !Ref CognitoAuthApi
+        ChangePassword:
+          Type: Api
+          Properties:
+            Path: /change-password
+            Method: POST
+            RestApiId: !Ref CognitoAuthApi
+        ResendCode:
+          Type: Api
+          Properties:
+            Path: /resend-code
+            Method: POST
+            RestApiId: !Ref CognitoAuthApi
+
+Outputs:
+  ApiEndpoint:
+    Description: API Gateway endpoint URL for the Prod stage
+    Value: !Sub "https://${CognitoAuthApi}.execute-api.${AWS::Region}.amazonaws.com/Prod"

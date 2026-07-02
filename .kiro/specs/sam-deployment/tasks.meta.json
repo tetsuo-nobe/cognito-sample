@@ -1,0 +1,87 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 プロジェクトルートに template.yaml を作成する": [
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963200813
+      },
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963213336
+      },
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963283972
+      }
+    ],
+    "2.1 `sam validate` でテンプレート構文を検証する": [
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963200937
+      },
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963290443
+      },
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963346793
+      }
+    ],
+    "2.2 `sam build` でビルドが成功することを検証する": [
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963201088
+      },
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963352242
+      },
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963417805
+      }
+    ],
+    "3. 最終チェックポイント": [
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963201185
+      },
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963423293
+      },
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963429630
+      }
+    ],
+    "1. SAMテンプレートファイルの作成": [
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963284028
+      }
+    ],
+    "2. テンプレートの検証": [
+      {
+        "executionId": "49e1916d-a95a-433b-b6e0-052c716afac7",
+        "chatSessionId": "sess_3b077c04-7498-4a85-80f1-e1ed3c657cd7",
+        "timestamp": 1782963417875
+      }
+    ]
+  }
+}
