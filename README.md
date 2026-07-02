@@ -101,6 +101,47 @@ python -m http.server 8000
 
 ブラウザで `http://localhost:8000` にアクセスしてください。
 
+### 4. AWS Amplify ホスティングでのデプロイ
+
+本リポジトリはモノリポ構成のため、Amplify ホスティングでフロントエンドのみをデプロイするにはビルド設定で `frontend/` ディレクトリを指定する必要があります。
+
+Amplify コンソールでアプリを作成する際、または `amplify.yml` をリポジトリルートに配置して以下の内容を設定してください：
+
+```yaml
+version: 1
+applications:
+  - appRoot: frontend
+    frontend:
+      phases:
+        build:
+          commands: []
+      artifacts:
+        baseDirectory: /
+        files:
+          - '**/*'
+      cache:
+        paths: []
+```
+
+#### 設定のポイント
+
+| 項目 | 説明 |
+|------|------|
+| `appRoot: frontend` | モノリポ内のフロントエンドディレクトリをルートとして指定 |
+| `phases.build.commands: []` | ビルドコマンドなし（静的ファイルのためビルド不要） |
+| `artifacts.baseDirectory: /` | `appRoot` からの相対パスで成果物ディレクトリを指定 |
+| `artifacts.files: '**/*'` | 全ファイルをデプロイ対象とする |
+
+#### Amplify コンソールでの設定手順
+
+1. Amplify コンソールで「新しいアプリ」→「ウェブアプリケーションをホスト」を選択
+2. リポジトリプロバイダー（GitHub等）を接続
+3. 「モノリポ」にチェックを入れ、ルートディレクトリに `frontend` を指定
+4. ビルド設定は上記 `amplify.yml` の内容が自動適用される（または手動で入力）
+5. デプロイ後、`frontend/js/config.js` の `apiEndpoint` を実際の API Gateway URL に設定済みであることを確認
+
+> **注意**: SPA のハッシュベースルーティング（`#/signin` 等）を使用しているため、Amplify のリライトルール設定は不要です。
+
 ## API エンドポイント
 
 | メソッド | パス | 説明 | リクエストボディ |
