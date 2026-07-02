@@ -131,7 +131,7 @@ function renderSignUpPage() {
           <div class="error-message" id="signup-password-confirm-error"></div>
         </div>
         <div class="error-message" id="signup-general-error"></div>
-        <button type="submit" id="signup-button">サインアップ</button>
+        <button type="submit" id="signup-button" class="btn btn-primary">サインアップ</button>
       </form>
       <p class="link-text"><a href="#" id="back-to-signin-link">サインインページに戻る</a></p>
     </div>
